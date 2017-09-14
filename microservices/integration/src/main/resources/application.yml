@@ -1,0 +1,19 @@
+server:
+  port: 8761
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+zuul:
+  routes:
+    item_service:
+      path: /item/**
+      serviceId: ITEM_SERVICE
+      url: http://localhost:9006
+    special_service:
+      path: /special/**
+      serviceId: SPECIAL_SERVICE
+      url: http://localhost:9007
+  prefix: /api
+
